@@ -19,5 +19,4 @@ workflows:
     jobs:
       - printhello
       - printworld
-          requires: 
-            - printhello
+          requires: printhello
