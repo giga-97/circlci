@@ -17,6 +17,12 @@ jobs:
       - checkout
       - run: echo World!
       
+  inv_name:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run: echo  $MY_INV_NCK_NME
 workflows:
   print_hello_world:
     jobs:
