@@ -8,6 +8,8 @@ jobs:
       - checkout
       - run: "echo Hello, "
   print_world:
+    requires:
+      - print_hello
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -19,5 +21,3 @@ workflows:
     jobs:
       - print_hello
       - print_world
-          requires:
-            - print_hello
