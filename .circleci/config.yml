@@ -15,8 +15,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: echo World!
-      
+      - run: echo World!      
   inv_name:
     docker:
       - image: circleci/node:13.8.0
@@ -30,3 +29,4 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - inv_name
