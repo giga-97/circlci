@@ -21,7 +21,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: echo  $MY_INV_NCK_NME
+      - run: echo  $CIRCLE_USERNAME
 workflows:
   print_hello_world:
     jobs:
