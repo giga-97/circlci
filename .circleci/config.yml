@@ -2,6 +2,7 @@ version: 2.1
 
 jobs:
   print_hello:
+    name: Hello
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -9,7 +10,7 @@ jobs:
       - run: "echo Hello, "
   print_world:
     requires:
-      - print_hello
+      - Hello
     docker:
       - image: circleci/node:13.8.0
     steps:
@@ -17,10 +18,7 @@ jobs:
       - run: "echo World!"  
         
 workflows:
-  version: 2
   print-hello-workflow:
     jobs:
       - print_hello
       - print_world
-          requires:
-            - print_hello
