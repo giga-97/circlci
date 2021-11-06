@@ -9,6 +9,7 @@ jobs:
       - checkout
       - run: "echo Hello, "
   print_world:
+    name: World
     requires:
       - Hello
     docker:
