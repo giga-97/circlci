@@ -26,18 +26,18 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo "Hello World!" > ~/o1.txt
-      - save_cache:
-          key: v1-myapp-{{ .BuildNum }}-{{ checksum "o1" }}
+      - run: echo "Hello World!" > /tmp/o1.txt
+      - persist_to_workspace:
+          root: /tmp
           paths:
-            - ~/o1.txt
+            - o1.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: cat ~/o1.txt
-      - restore_cache:
-          key: v1-myapp-{{ .BuildNum }}-{{ checksum "o1.txt" }}
+      - run: cat /tmp/o1.txt
+      - attach_workspace:
+          at: /tmp/o1.txt
 
 workflows:
   print_hello_world:
