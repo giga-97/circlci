@@ -37,7 +37,7 @@ jobs:
     steps:
       - run: cat ~/o1.txt
       - restore_cache:
-          key: v1-myapp-{{ arch }}-{{ checksum "output.txt" }}
+          key: v1-myapp-{{ .BuildNum }}-{{ checksum "output.txt" }}
 
 workflows:
   print_hello_world:
