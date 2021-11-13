@@ -35,9 +35,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: cat /tmp/o1.txt
       - attach_workspace:
           at: /tmp/o1.txt
+      - run: cat /tmp/o1.txt
 
 workflows:
   print_hello_world:
