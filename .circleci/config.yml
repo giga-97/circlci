@@ -35,7 +35,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: cat ~/output.txt
+      - run: cat ~/o1.txt
       - restore_cache:
           key: v1-myapp-{{ arch }}-{{ checksum "output.txt" }}
 
