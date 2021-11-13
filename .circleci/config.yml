@@ -21,23 +21,23 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: echo  $CIRCLE_USERNAME
+      - run: echo $CIRCLE_USERNAME
   save_hello_world_output:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "Hello World!" > output.txt
       - save_cache:
-        key: v1-myapp-{{ arch }}-{{ checksum "output.txt" }}
-        paths:
-          - /tmp/o1.txt
+          key: v1-myapp-{{ .BuildNum }}-{{ checksum "output.txt" }}
+          paths:
+            - ~/o1.txt
   print_output_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - run: cat output.txt
       - restore_cache:
-        key: v1-myapp-{{ arch }}-{{ checksum "output.txt" }}
+          key: v1-myapp-{{ arch }}-{{ checksum "output.txt" }}
 
 workflows:
   print_hello_world:
